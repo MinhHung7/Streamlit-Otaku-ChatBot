@@ -7,6 +7,10 @@ from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 
+st.set_page_config(page_title="Recommender System", page_icon="🧑‍💻")
+
+st.title("Anime Recommender System")
+
 if 'csv_file' in st.session_state:
 
     # Read the CSV from session state into DataFrame

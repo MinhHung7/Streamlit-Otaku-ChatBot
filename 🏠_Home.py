@@ -7,12 +7,12 @@ st.set_page_config(
 
 st.title("Anime 2023 Analysis & Machine Learning Hub")
 st.markdown("""### Hello there 🖐
-This is my first project about buidling an analysis app using `Streamlit`
+This is my first project about buidling an analysis app using [Streamlit](https://streamlit.io/)
 
-In order to test successfully, I use `Anime 2023 datasets`, which my team analyse in final project in **Data Science Programming**
-
+In order to test successfully, you need to use [anime-dataset-2023.csv](https://www.kaggle.com/datasets/dbdmobile/myanimelist-dataset?select=anime-dataset-2023.csv), which my team analyse in final project in **Data Science Programming**
+            
 ---
-If you're curious about our final project, you can visit here [Final Project](https://github.com/MinhHung7/Final_Project_DataScienceProgramming)
+If you're curious about our final project, you can visit here [Final Project Data Science Programming](https://github.com/MinhHung7/Final_Project_DataScienceProgramming)
 
 ### 👉 Here are some information about this app
 """)
@@ -48,4 +48,8 @@ with st.expander("Navigation Instructions"):
     It allows you to switch between different features and analysis sections with ease.
     """)
 
-
+# Footer
+st.markdown("""
+---
+Created with ❤️ by [Minh Hung](https://www.linkedin.com/in/nmh7/).
+""")
