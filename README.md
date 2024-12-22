@@ -20,4 +20,10 @@ streamlit run 🏠_Home.py
 ```
 ## 👉 Guideline
 After run my app, you will see the first windown like this
+![Home Page](https://github.com/MinhHung7/Streamlit-Otaku-Recommendation/blob/main/images/Home.png)
 
+Now you need to download dataset anime 2023 via this link [anime-dataset-2023.csv](https://www.kaggle.com/datasets/dbdmobile/myanimelist-dataset?select=anime-dataset-2023.csv) or via link in app.
+
+Then navigate to `📥Data Uploading & Preprocessing` in the left sidebar. There, you need to upload your file `anime-dataset-2023.csv` and then enter `Data Preprocessing` button
+
+**Done**, now you can explore this app by navigating any pages in the left sidebar 🥰
