@@ -23,7 +23,7 @@ if 'csv_file' in st.session_state:
 
     os.environ["PANDASAI_API_KEY"] = "$2a$10$DQcV6/8s8O.lC8V6/3Vw8.GIcENCPLYWxEWm9jOsoGzVYiM1X1vaO"
 
-    sdf = SmartDataframe(df, config={"save_charts": True,"save_charts_path": os.getcwd(), "verbose": True, "response_parser": StreamlitResponse})
+    sdf = SmartDataframe(df, config={"save_charts": True,"save_charts_path": export_folder, "verbose": True, "response_parser": StreamlitResponse})
 
     # User input
     user_input = st.text_area("You: ", "")
@@ -32,9 +32,21 @@ if 'csv_file' in st.session_state:
 
     if submit_button and user_input:
 
+        for filename in os.listdir(export_folder):
+            file_path = os.path.join(export_folder, filename)
+            # Check if it's a file (not a folder)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+
         translated_text = translator.translate(user_input)
 
         response = sdf.chat(translated_text)
+
+        for filename in os.listdir(export_folder):
+            file_path = os.path.join(export_folder, filename)
+            # Check if it's a file (not a folder)
+            if os.path.isfile(file_path):
+                st.image(file_path)
 
         if isinstance(response, pd.DataFrame):
             # Display the DataFrame directly
