@@ -15199,3 +15199,1372 @@ plt.show()
 pandasai.exceptions.NoResultFoundError: No result returned
 
 2024-12-23 11:10:06 [ERROR] Pipeline failed on step 6: No result returned
+2024-12-23 12:36:40 [INFO] Question: Draw a chart depicting the 5 highest-ranked anime series
+2024-12-23 12:36:44 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-12-23 12:36:44 [INFO] Prompt ID: f2b14c95-5fd1-487e-b363-eeefba781f0b
+2024-12-23 12:36:44 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-12-23 12:36:44 [INFO] Executing Step 0: ValidatePipelineInput
+2024-12-23 12:36:44 [INFO] Executing Step 1: CacheLookup
+2024-12-23 12:36:44 [INFO] Using cached response
+2024-12-23 12:36:44 [INFO] Executing Step 2: PromptGeneration
+2024-12-23 12:36:44 [INFO] Executing Step 2: Skipping...
+2024-12-23 12:36:44 [INFO] Executing Step 3: CodeGenerator
+2024-12-23 12:36:44 [INFO] Executing Step 3: Skipping...
+2024-12-23 12:36:44 [INFO] Executing Step 4: CachePopulation
+2024-12-23 12:36:44 [INFO] Executing Step 4: Skipping...
+2024-12-23 12:36:44 [INFO] Executing Step 5: CodeCleaning
+2024-12-23 12:36:44 [INFO] Saving charts to D:\Data Science Programming\External_Projects\Streamlit Project\exports\charts\f2b14c95-5fd1-487e-b363-eeefba781f0b.png
+2024-12-23 12:36:44 [INFO] 
+Code running:
+```
+dfs[0]['Score'] = pd.to_numeric(dfs[0]['Score'])
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/f2b14c95-5fd1-487e-b363-eeefba781f0b.png')
+result = {'type': 'plot', 'value': 'D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/f2b14c95-5fd1-487e-b363-eeefba781f0b.png'}
+        ```
+2024-12-23 12:36:44 [INFO] Executing Step 6: CodeExecution
+2024-12-23 12:36:44 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_pandas.py", line 109, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedPandas")
+AttributeError: 'to_numeric' is not allowed in RestrictedPandas
+
+2024-12-23 12:36:44 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-12-23 12:36:44 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-12-23 12:36:44 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-12-23 12:36:44 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Uchi no Maid ga Uzasugiru!: Uchi no Maid wa Yappari Mou Honto Uzainda naa...,6.12,"Action, Boys Love, Drama, Romance, Supernatural","Outrageous misadventures of an almost normal family with a housewife, her husband, and their two kids Yuusuke and Mikan. Wacky humor about this weird family's daily life.
+
+(Source: AniDB)",Music,475.0,"Aniplex, Dentsu, Movic, Fuji TV, BIGLOBE, Kyoraku Industrial Holdings, Kadokawa",Hotline,Web manga,132.0,R - 17+ (violence & profanity),13033,4745,3792,3320,69080,2007-01-18,1998-02-25
+Detective Conan Movie 21: The Crimson Love Letter,7.44,"Action, Boys Love, Fantasy, Supernatural","In the human realm, witches and wizards seem to be mere creations of fantasy. Ever the adventurous teenager, Mirai Asahina sets out to disprove this notion by following the tracks of a peculiar shooting star that had fallen the night before. Sure enough, Mirai soon has a chance encounter with Liko—a clumsy witch apprentice who hails from the Magic World, a colorful realm inhabited by magicians.
+
+As if by fate, the appearance of strange villains forces Mirai and Liko to join hands. In doing so, they unleash their strength as a pair of legendary magicians—the ""Maho Girls Precure!"" Now gifted with unbelievable power, the unlikely duo embarks on an adventure filled with magical spells and powerful gemstones. Along the way, the two girls discover the hidden marvels that tie their individual worlds together.",TV,170.0,"Bouncy, Just Production, JP Room",Foch Films,Other,77.0,R+ - Mild Nudity,7178,3927,8253,46837,17859,2012-07-11,1996-02-25
+Rainbow Sentai Robin,7.74,"Comedy, Drama, Supernatural, Ecchi","Seita dies after dozing off behind the wheel and wakes up in the underworld. However, the prize that a demon extracts from him is part of his body.
+
+(Source: ANN)",OVA,156.0,Dynamic Planning,Nut,Original,68.0,Rx - Hentai,10574,7077,1298,258332,6132,1988-06-25,2006-09-15
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Draw a chart depicting the 5 highest-ranked anime series
+
+You generated this python code:
+dfs[0]['Score'] = pd.to_numeric(dfs[0]['Score'])
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/f2b14c95-5fd1-487e-b363-eeefba781f0b.png')
+result = {'type': 'plot', 'value': 'D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/f2b14c95-5fd1-487e-b363-eeefba781f0b.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_pandas.py", line 109, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedPandas")
+AttributeError: 'to_numeric' is not allowed in RestrictedPandas
+
+
+Fix the python code above and return the new python code:
+2024-12-23 12:36:44 [INFO] Executing Step 1: CodeGenerator
+2024-12-23 12:36:48 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:36:48 [INFO] Code generated:
+            ```
+            import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create a dataframe from the provided data
+data = {
+    'Name': ['Detective Conan Movie 21: The Crimson Love Letter', 'Rainbow Sentai Robin', 'Uchi no Maid ga Uzasugiru!: Uchi no Maid wa Yappari Mou Honto Uzainda naa...'],
+    'Score': [7.44, 7.74, 6.12]
+}
+dfs = [pd.DataFrame(data)]
+
+# Sort the dataframe by 'Score' in descending order and get the top 5 anime series
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+
+# Plot the bar chart for the top 5 highest-ranked anime series
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+            ```
+            
+2024-12-23 12:36:48 [INFO] Executing Step 2: CodeCleaning
+2024-12-23 12:36:48 [INFO] 
+Code running:
+```
+data = {'Name': ['Detective Conan Movie 21: The Crimson Love Letter', 'Rainbow Sentai Robin', 'Uchi no Maid ga Uzasugiru!: Uchi no Maid wa Yappari Mou Honto Uzainda naa...'], 'Score': [7.44, 7.74, 6.12]}
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+        ```
+2024-12-23 12:36:48 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 10, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'tight_layout' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:36:48 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-12-23 12:36:48 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-12-23 12:36:48 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-12-23 12:36:48 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Uchi no Maid ga Uzasugiru!: Uchi no Maid wa Yappari Mou Honto Uzainda naa...,6.12,"Action, Boys Love, Drama, Romance, Supernatural","Outrageous misadventures of an almost normal family with a housewife, her husband, and their two kids Yuusuke and Mikan. Wacky humor about this weird family's daily life.
+
+(Source: AniDB)",Music,475.0,"Aniplex, Dentsu, Movic, Fuji TV, BIGLOBE, Kyoraku Industrial Holdings, Kadokawa",Hotline,Web manga,132.0,R - 17+ (violence & profanity),13033,4745,3792,3320,69080,2007-01-18,1998-02-25
+Detective Conan Movie 21: The Crimson Love Letter,7.44,"Action, Boys Love, Fantasy, Supernatural","In the human realm, witches and wizards seem to be mere creations of fantasy. Ever the adventurous teenager, Mirai Asahina sets out to disprove this notion by following the tracks of a peculiar shooting star that had fallen the night before. Sure enough, Mirai soon has a chance encounter with Liko—a clumsy witch apprentice who hails from the Magic World, a colorful realm inhabited by magicians.
+
+As if by fate, the appearance of strange villains forces Mirai and Liko to join hands. In doing so, they unleash their strength as a pair of legendary magicians—the ""Maho Girls Precure!"" Now gifted with unbelievable power, the unlikely duo embarks on an adventure filled with magical spells and powerful gemstones. Along the way, the two girls discover the hidden marvels that tie their individual worlds together.",TV,170.0,"Bouncy, Just Production, JP Room",Foch Films,Other,77.0,R+ - Mild Nudity,7178,3927,8253,46837,17859,2012-07-11,1996-02-25
+Rainbow Sentai Robin,7.74,"Comedy, Drama, Supernatural, Ecchi","Seita dies after dozing off behind the wheel and wakes up in the underworld. However, the prize that a demon extracts from him is part of his body.
+
+(Source: ANN)",OVA,156.0,Dynamic Planning,Nut,Original,68.0,Rx - Hentai,10574,7077,1298,258332,6132,1988-06-25,2006-09-15
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Draw a chart depicting the 5 highest-ranked anime series
+
+You generated this python code:
+data = {'Name': ['Detective Conan Movie 21: The Crimson Love Letter', 'Rainbow Sentai Robin', 'Uchi no Maid ga Uzasugiru!: Uchi no Maid wa Yappari Mou Honto Uzainda naa...'], 'Score': [7.44, 7.74, 6.12]}
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 10, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'tight_layout' is not allowed in RestrictedMatplotlib
+
+
+Fix the python code above and return the new python code:
+2024-12-23 12:36:48 [INFO] Executing Step 1: CodeGenerator
+2024-12-23 12:36:51 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:36:51 [INFO] Code generated:
+            ```
+            data = {'Name': ['Detective Conan Movie 21: The Crimson Love Letter', 'Rainbow Sentai Robin', 'Uchi no Maid ga Uzasugiru!: Uchi no Maid wa Yappari Mou Honto Uzainda naa...'], 'Score': [7.44, 7.74, 6.12]}
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout(pad=3.0)
+plt.show()
+            ```
+            
+2024-12-23 12:36:51 [INFO] Executing Step 2: CodeCleaning
+2024-12-23 12:36:51 [INFO] 
+Code running:
+```
+data = {'Name': ['Detective Conan Movie 21: The Crimson Love Letter', 'Rainbow Sentai Robin', 'Uchi no Maid ga Uzasugiru!: Uchi no Maid wa Yappari Mou Honto Uzainda naa...'], 'Score': [7.44, 7.74, 6.12]}
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout(pad=3.0)
+plt.show()
+        ```
+2024-12-23 12:36:51 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 10, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'tight_layout' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:36:51 [WARNING] Failed to execute code retrying with a correction framework [retry number: 3]
+2024-12-23 12:36:51 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-12-23 12:36:51 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-12-23 12:36:51 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Uchi no Maid ga Uzasugiru!: Uchi no Maid wa Yappari Mou Honto Uzainda naa...,6.12,"Action, Boys Love, Drama, Romance, Supernatural","Outrageous misadventures of an almost normal family with a housewife, her husband, and their two kids Yuusuke and Mikan. Wacky humor about this weird family's daily life.
+
+(Source: AniDB)",Music,475.0,"Aniplex, Dentsu, Movic, Fuji TV, BIGLOBE, Kyoraku Industrial Holdings, Kadokawa",Hotline,Web manga,132.0,R - 17+ (violence & profanity),13033,4745,3792,3320,69080,2007-01-18,1998-02-25
+Detective Conan Movie 21: The Crimson Love Letter,7.44,"Action, Boys Love, Fantasy, Supernatural","In the human realm, witches and wizards seem to be mere creations of fantasy. Ever the adventurous teenager, Mirai Asahina sets out to disprove this notion by following the tracks of a peculiar shooting star that had fallen the night before. Sure enough, Mirai soon has a chance encounter with Liko—a clumsy witch apprentice who hails from the Magic World, a colorful realm inhabited by magicians.
+
+As if by fate, the appearance of strange villains forces Mirai and Liko to join hands. In doing so, they unleash their strength as a pair of legendary magicians—the ""Maho Girls Precure!"" Now gifted with unbelievable power, the unlikely duo embarks on an adventure filled with magical spells and powerful gemstones. Along the way, the two girls discover the hidden marvels that tie their individual worlds together.",TV,170.0,"Bouncy, Just Production, JP Room",Foch Films,Other,77.0,R+ - Mild Nudity,7178,3927,8253,46837,17859,2012-07-11,1996-02-25
+Rainbow Sentai Robin,7.74,"Comedy, Drama, Supernatural, Ecchi","Seita dies after dozing off behind the wheel and wakes up in the underworld. However, the prize that a demon extracts from him is part of his body.
+
+(Source: ANN)",OVA,156.0,Dynamic Planning,Nut,Original,68.0,Rx - Hentai,10574,7077,1298,258332,6132,1988-06-25,2006-09-15
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Draw a chart depicting the 5 highest-ranked anime series
+
+You generated this python code:
+data = {'Name': ['Detective Conan Movie 21: The Crimson Love Letter', 'Rainbow Sentai Robin', 'Uchi no Maid ga Uzasugiru!: Uchi no Maid wa Yappari Mou Honto Uzainda naa...'], 'Score': [7.44, 7.74, 6.12]}
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout(pad=3.0)
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 10, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'tight_layout' is not allowed in RestrictedMatplotlib
+
+
+Fix the python code above and return the new python code:
+2024-12-23 12:36:51 [INFO] Executing Step 1: CodeGenerator
+2024-12-23 12:36:54 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:36:54 [INFO] Code generated:
+            ```
+            data = {'Name': ['Detective Conan Movie 21: The Crimson Love Letter', 'Rainbow Sentai Robin', 'Uchi no Maid ga Uzasugiru!: Uchi no Maid wa Yappari Mou Honto Uzainda naa...'], 'Score': [7.44, 7.74, 6.12]}
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+            ```
+            
+2024-12-23 12:36:54 [INFO] Executing Step 2: CodeCleaning
+2024-12-23 12:36:54 [INFO] 
+Code running:
+```
+data = {'Name': ['Detective Conan Movie 21: The Crimson Love Letter', 'Rainbow Sentai Robin', 'Uchi no Maid ga Uzasugiru!: Uchi no Maid wa Yappari Mou Honto Uzainda naa...'], 'Score': [7.44, 7.74, 6.12]}
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+        ```
+2024-12-23 12:36:54 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 10, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'tight_layout' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:36:54 [ERROR] Pipeline failed on step 6: 'tight_layout' is not allowed in RestrictedMatplotlib
+2024-12-23 12:38:39 [INFO] Question: Draw a chart showing the top 5 highest-ranked anime series
+2024-12-23 12:38:39 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-12-23 12:38:39 [INFO] Prompt ID: af24cd7d-363f-4068-8f41-f33cabeab0a6
+2024-12-23 12:38:39 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-12-23 12:38:40 [INFO] Executing Step 0: ValidatePipelineInput
+2024-12-23 12:38:40 [INFO] Executing Step 1: CacheLookup
+2024-12-23 12:38:40 [INFO] Executing Step 2: PromptGeneration
+2024-12-23 12:38:40 [INFO] Querying without using training data.
+2024-12-23 12:38:41 [INFO] Querying without using training docs.
+2024-12-23 12:38:41 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Re:Creators,6.19,"Action, Mystery, Romance, Suspense","An animated promotional video for the novel of the same title.
+
+The novel's story is set in the year 2060 with Tokyo's third Olympics close at hand. While a secret project using robots moves forward, notice of a terrorist threat arrives. The story's protagonist combats terrorism and aims to protect the heroine, to whom he has given his heart. Plot twists come one after another as the story unfolds to a moving conclusion.
+
+(Source: ANN)",Music,73.0,Polygram Japan,"Studio Boogie Nights, Mouse",Mixed media,135.0,R - 17+ (violence & profanity),12828,3054,3566,3928,46536,2015-03-21,2013-03-20
+Saiyuuki Reload: Burial,4.57,"Action, Drama, Mystery, Sci-Fi","Super Wings follows the adventures of an adorable jet plane named Jett who travels around the world delivering packages to children. On every delivery, Jett encounters new problems that he must solve with the help of his friends the ""Super Wings"": Dizzy, Jerome and Donnie. Together, the team explores different countries and learns the diversity of new cultures.
+
+(Source: Official YouTube channel)",OVA,331.0,"Aniplex, Dentsu, Fuji TV, Kansai Telecasting","Takahashi Studio, Suna Kouhou",Picture book,124.0,PG-13 - Teens 13 or older,4103,9154,747,41064,579,2011-08-25,2011-01-29
+Ichigeki Sacchuu!! Hoihoi-san: Legacy,6.25,"Action, Adventure, Romance","A group of enigmatic white-haired children has been spotted at different times and places in Europe for over 500 years. Always with the appearance of 11-year-olds, they behave far more mature than they should be, never grow old, and seem to have supernatural power. What they have been seeking is a girl, and the only clue they have is a picture with a crescent moon. Now, in the year of 2012, an athletic boy named Tohma is about to be involved in this centuries-long mystery.
+
+(Source: ANN)",Movie,56.0,"Aniplex, Fujishouji","TYMOTE, Spoon",Game,99.0,G - All Ages,8828,8189,17,12329,22651,2005-11-12,2003-04-11
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Draw a chart showing the top 5 highest-ranked anime series
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-12-23 12:38:41 [INFO] Executing Step 3: CodeGenerator
+2024-12-23 12:38:46 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:38:46 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the data
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928},
+        {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064},
+        {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+
+df = pd.DataFrame(data)
+
+# Sort by Score in descending order and get the top 5 highest-ranked anime series
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+
+# Plotting the chart
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()  # Invert y-axis to show the highest score at the top
+plt.show()
+
+# Declare result variable
+result = {"type": "plot", "value": "temp_chart.png"}
+            ```
+            
+2024-12-23 12:38:46 [INFO] Executing Step 4: CachePopulation
+2024-12-23 12:38:47 [INFO] Executing Step 5: CodeCleaning
+2024-12-23 12:38:47 [INFO] Saving charts to D:\Data Science Programming\External_Projects\Streamlit Project\exports\charts\af24cd7d-363f-4068-8f41-f33cabeab0a6.png
+2024-12-23 12:38:48 [INFO] 
+Code running:
+```
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+result = {'type': 'plot', 'value': 'D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/af24cd7d-363f-4068-8f41-f33cabeab0a6.png'}
+        ```
+2024-12-23 12:38:48 [INFO] Executing Step 6: CodeExecution
+2024-12-23 12:38:48 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:38:49 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-12-23 12:38:49 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-12-23 12:38:49 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-12-23 12:38:50 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Re:Creators,6.19,"Action, Mystery, Romance, Suspense","An animated promotional video for the novel of the same title.
+
+The novel's story is set in the year 2060 with Tokyo's third Olympics close at hand. While a secret project using robots moves forward, notice of a terrorist threat arrives. The story's protagonist combats terrorism and aims to protect the heroine, to whom he has given his heart. Plot twists come one after another as the story unfolds to a moving conclusion.
+
+(Source: ANN)",Music,73.0,Polygram Japan,"Studio Boogie Nights, Mouse",Mixed media,135.0,R - 17+ (violence & profanity),12828,3054,3566,3928,46536,2015-03-21,2013-03-20
+Saiyuuki Reload: Burial,4.57,"Action, Drama, Mystery, Sci-Fi","Super Wings follows the adventures of an adorable jet plane named Jett who travels around the world delivering packages to children. On every delivery, Jett encounters new problems that he must solve with the help of his friends the ""Super Wings"": Dizzy, Jerome and Donnie. Together, the team explores different countries and learns the diversity of new cultures.
+
+(Source: Official YouTube channel)",OVA,331.0,"Aniplex, Dentsu, Fuji TV, Kansai Telecasting","Takahashi Studio, Suna Kouhou",Picture book,124.0,PG-13 - Teens 13 or older,4103,9154,747,41064,579,2011-08-25,2011-01-29
+Ichigeki Sacchuu!! Hoihoi-san: Legacy,6.25,"Action, Adventure, Romance","A group of enigmatic white-haired children has been spotted at different times and places in Europe for over 500 years. Always with the appearance of 11-year-olds, they behave far more mature than they should be, never grow old, and seem to have supernatural power. What they have been seeking is a girl, and the only clue they have is a picture with a crescent moon. Now, in the year of 2012, an athletic boy named Tohma is about to be involved in this centuries-long mystery.
+
+(Source: ANN)",Movie,56.0,"Aniplex, Fujishouji","TYMOTE, Spoon",Game,99.0,G - All Ages,8828,8189,17,12329,22651,2005-11-12,2003-04-11
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Draw a chart showing the top 5 highest-ranked anime series
+
+You generated this python code:
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+result = {'type': 'plot', 'value': 'D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/af24cd7d-363f-4068-8f41-f33cabeab0a6.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+
+Fix the python code above and return the new python code:
+2024-12-23 12:38:50 [INFO] Executing Step 1: CodeGenerator
+2024-12-23 12:38:53 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:38:53 [INFO] Code generated:
+            ```
+            import pandas as pd
+import matplotlib.pyplot as plt
+
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+            ```
+            
+2024-12-23 12:38:53 [INFO] Executing Step 2: CodeCleaning
+2024-12-23 12:38:53 [INFO] 
+Code running:
+```
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+        ```
+2024-12-23 12:38:53 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:38:53 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-12-23 12:38:53 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-12-23 12:38:53 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-12-23 12:38:53 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Re:Creators,6.19,"Action, Mystery, Romance, Suspense","An animated promotional video for the novel of the same title.
+
+The novel's story is set in the year 2060 with Tokyo's third Olympics close at hand. While a secret project using robots moves forward, notice of a terrorist threat arrives. The story's protagonist combats terrorism and aims to protect the heroine, to whom he has given his heart. Plot twists come one after another as the story unfolds to a moving conclusion.
+
+(Source: ANN)",Music,73.0,Polygram Japan,"Studio Boogie Nights, Mouse",Mixed media,135.0,R - 17+ (violence & profanity),12828,3054,3566,3928,46536,2015-03-21,2013-03-20
+Saiyuuki Reload: Burial,4.57,"Action, Drama, Mystery, Sci-Fi","Super Wings follows the adventures of an adorable jet plane named Jett who travels around the world delivering packages to children. On every delivery, Jett encounters new problems that he must solve with the help of his friends the ""Super Wings"": Dizzy, Jerome and Donnie. Together, the team explores different countries and learns the diversity of new cultures.
+
+(Source: Official YouTube channel)",OVA,331.0,"Aniplex, Dentsu, Fuji TV, Kansai Telecasting","Takahashi Studio, Suna Kouhou",Picture book,124.0,PG-13 - Teens 13 or older,4103,9154,747,41064,579,2011-08-25,2011-01-29
+Ichigeki Sacchuu!! Hoihoi-san: Legacy,6.25,"Action, Adventure, Romance","A group of enigmatic white-haired children has been spotted at different times and places in Europe for over 500 years. Always with the appearance of 11-year-olds, they behave far more mature than they should be, never grow old, and seem to have supernatural power. What they have been seeking is a girl, and the only clue they have is a picture with a crescent moon. Now, in the year of 2012, an athletic boy named Tohma is about to be involved in this centuries-long mystery.
+
+(Source: ANN)",Movie,56.0,"Aniplex, Fujishouji","TYMOTE, Spoon",Game,99.0,G - All Ages,8828,8189,17,12329,22651,2005-11-12,2003-04-11
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Draw a chart showing the top 5 highest-ranked anime series
+
+You generated this python code:
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+
+Fix the python code above and return the new python code:
+2024-12-23 12:38:53 [INFO] Executing Step 1: CodeGenerator
+2024-12-23 12:38:56 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:38:57 [INFO] Code generated:
+            ```
+            import pandas as pd
+import matplotlib.pyplot as plt
+
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+            ```
+            
+2024-12-23 12:38:57 [INFO] Executing Step 2: CodeCleaning
+2024-12-23 12:38:58 [INFO] 
+Code running:
+```
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+        ```
+2024-12-23 12:38:59 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:38:59 [WARNING] Failed to execute code retrying with a correction framework [retry number: 3]
+2024-12-23 12:38:59 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-12-23 12:38:59 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-12-23 12:38:59 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Re:Creators,6.19,"Action, Mystery, Romance, Suspense","An animated promotional video for the novel of the same title.
+
+The novel's story is set in the year 2060 with Tokyo's third Olympics close at hand. While a secret project using robots moves forward, notice of a terrorist threat arrives. The story's protagonist combats terrorism and aims to protect the heroine, to whom he has given his heart. Plot twists come one after another as the story unfolds to a moving conclusion.
+
+(Source: ANN)",Music,73.0,Polygram Japan,"Studio Boogie Nights, Mouse",Mixed media,135.0,R - 17+ (violence & profanity),12828,3054,3566,3928,46536,2015-03-21,2013-03-20
+Saiyuuki Reload: Burial,4.57,"Action, Drama, Mystery, Sci-Fi","Super Wings follows the adventures of an adorable jet plane named Jett who travels around the world delivering packages to children. On every delivery, Jett encounters new problems that he must solve with the help of his friends the ""Super Wings"": Dizzy, Jerome and Donnie. Together, the team explores different countries and learns the diversity of new cultures.
+
+(Source: Official YouTube channel)",OVA,331.0,"Aniplex, Dentsu, Fuji TV, Kansai Telecasting","Takahashi Studio, Suna Kouhou",Picture book,124.0,PG-13 - Teens 13 or older,4103,9154,747,41064,579,2011-08-25,2011-01-29
+Ichigeki Sacchuu!! Hoihoi-san: Legacy,6.25,"Action, Adventure, Romance","A group of enigmatic white-haired children has been spotted at different times and places in Europe for over 500 years. Always with the appearance of 11-year-olds, they behave far more mature than they should be, never grow old, and seem to have supernatural power. What they have been seeking is a girl, and the only clue they have is a picture with a crescent moon. Now, in the year of 2012, an athletic boy named Tohma is about to be involved in this centuries-long mystery.
+
+(Source: ANN)",Movie,56.0,"Aniplex, Fujishouji","TYMOTE, Spoon",Game,99.0,G - All Ages,8828,8189,17,12329,22651,2005-11-12,2003-04-11
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Draw a chart showing the top 5 highest-ranked anime series
+
+You generated this python code:
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+
+Fix the python code above and return the new python code:
+2024-12-23 12:38:59 [INFO] Executing Step 1: CodeGenerator
+2024-12-23 12:39:03 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:39:03 [INFO] Code generated:
+            ```
+            data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+            ```
+            
+2024-12-23 12:39:03 [INFO] Executing Step 2: CodeCleaning
+2024-12-23 12:39:03 [INFO] 
+Code running:
+```
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+        ```
+2024-12-23 12:39:03 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:39:03 [ERROR] Pipeline failed on step 6: 'gca' is not allowed in RestrictedMatplotlib
+2024-12-23 12:40:56 [INFO] Question: Draw a chart showing the top 5 highest-ranked anime series
+2024-12-23 12:40:56 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-12-23 12:40:56 [INFO] Prompt ID: fc5bf5e0-693f-4d2c-9422-be5eeb58f329
+2024-12-23 12:40:56 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-12-23 12:40:56 [INFO] Executing Step 0: ValidatePipelineInput
+2024-12-23 12:40:56 [INFO] Executing Step 1: CacheLookup
+2024-12-23 12:40:56 [INFO] Using cached response
+2024-12-23 12:40:56 [INFO] Executing Step 2: PromptGeneration
+2024-12-23 12:40:56 [INFO] Executing Step 2: Skipping...
+2024-12-23 12:40:56 [INFO] Executing Step 3: CodeGenerator
+2024-12-23 12:40:56 [INFO] Executing Step 3: Skipping...
+2024-12-23 12:40:56 [INFO] Executing Step 4: CachePopulation
+2024-12-23 12:40:56 [INFO] Executing Step 4: Skipping...
+2024-12-23 12:40:56 [INFO] Executing Step 5: CodeCleaning
+2024-12-23 12:40:56 [INFO] Saving charts to D:\Data Science Programming\External_Projects\Streamlit Project\exports\charts\fc5bf5e0-693f-4d2c-9422-be5eeb58f329.png
+2024-12-23 12:40:56 [INFO] 
+Code running:
+```
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+result = {'type': 'plot', 'value': 'D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/fc5bf5e0-693f-4d2c-9422-be5eeb58f329.png'}
+        ```
+2024-12-23 12:40:56 [INFO] Executing Step 6: CodeExecution
+2024-12-23 12:40:56 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:40:56 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-12-23 12:40:56 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-12-23 12:40:56 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-12-23 12:40:56 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Kakutou Bijin Wulong,6.6,"Comedy, Fantasy, Gourmet",Continuation of Legend of the Condor Hero II.,Movie,203.0,Shinano Kikaku,"LIDENFILMS, Felix Film",Music,128.0,R+ - Mild Nudity,12615,15058,2001,33177,19227,2022-10-23,2001-03-28
+Fumetsu no Anata e: Fushi no Tabiji,6.06,"Sci-Fi, Sports","The Mizuchi bloodline has long been hunted by Yokai, or monsters. Toru and Noboru Takagami are descendents of this bloodline, and under their grandmother's discretion, are given a secret weapon to combat these monsters. It is Tenko Kugen, a fox deity who can take the shape of a man or woman at will. The mischievous deity is accompanied by a shrine maiden, Ko, who will both live with the Takagami brothers at their house. Life just got complicated. 
+
+(Source: NIS America)",Music,170.0,"Kodansha, Tohokushinsha Film Corporation, Bandai Namco Arts",Signal.MD,Web novel,0.28,R - 17+ (violence & profanity),7578,2366,228,14967,9268,2010-07-16,2007-03-27
+Ishida to Asakura Special,8.19,"Comedy, Drama, Romance, Hentai","DVD only 13th episode of the series.
+
+Gould and Keel work together with the New United Nations and the crew of the last remaining space station ""Freedom"" (their father) to broadcast a powerful signal all over the world with the new world map for everyone to be available. The episode ends with both of them looking over the horizon, as we see Freedom station falling to earth’s orbit as a shooting star.",OVA,20.0,"Aniplex, Yomiuri Telecasting, Rakuonsha",I.Toon,Radio,8.0,PG-13 - Teens 13 or older,6915,2262,44977,50011,5547,2020-05-01,1988-06-25
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Draw a chart showing the top 5 highest-ranked anime series
+
+You generated this python code:
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+result = {'type': 'plot', 'value': 'D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/fc5bf5e0-693f-4d2c-9422-be5eeb58f329.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+
+Fix the python code above and return the new python code:
+2024-12-23 12:40:56 [INFO] Executing Step 1: CodeGenerator
+2024-12-23 12:41:00 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:41:00 [INFO] Code generated:
+            ```
+            import pandas as pd
+import matplotlib.pyplot as plt
+
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+            ```
+            
+2024-12-23 12:41:00 [INFO] Executing Step 2: CodeCleaning
+2024-12-23 12:41:00 [INFO] 
+Code running:
+```
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+        ```
+2024-12-23 12:41:00 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:41:00 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-12-23 12:41:00 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-12-23 12:41:00 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-12-23 12:41:00 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Kakutou Bijin Wulong,6.6,"Comedy, Fantasy, Gourmet",Continuation of Legend of the Condor Hero II.,Movie,203.0,Shinano Kikaku,"LIDENFILMS, Felix Film",Music,128.0,R+ - Mild Nudity,12615,15058,2001,33177,19227,2022-10-23,2001-03-28
+Fumetsu no Anata e: Fushi no Tabiji,6.06,"Sci-Fi, Sports","The Mizuchi bloodline has long been hunted by Yokai, or monsters. Toru and Noboru Takagami are descendents of this bloodline, and under their grandmother's discretion, are given a secret weapon to combat these monsters. It is Tenko Kugen, a fox deity who can take the shape of a man or woman at will. The mischievous deity is accompanied by a shrine maiden, Ko, who will both live with the Takagami brothers at their house. Life just got complicated. 
+
+(Source: NIS America)",Music,170.0,"Kodansha, Tohokushinsha Film Corporation, Bandai Namco Arts",Signal.MD,Web novel,0.28,R - 17+ (violence & profanity),7578,2366,228,14967,9268,2010-07-16,2007-03-27
+Ishida to Asakura Special,8.19,"Comedy, Drama, Romance, Hentai","DVD only 13th episode of the series.
+
+Gould and Keel work together with the New United Nations and the crew of the last remaining space station ""Freedom"" (their father) to broadcast a powerful signal all over the world with the new world map for everyone to be available. The episode ends with both of them looking over the horizon, as we see Freedom station falling to earth’s orbit as a shooting star.",OVA,20.0,"Aniplex, Yomiuri Telecasting, Rakuonsha",I.Toon,Radio,8.0,PG-13 - Teens 13 or older,6915,2262,44977,50011,5547,2020-05-01,1988-06-25
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Draw a chart showing the top 5 highest-ranked anime series
+
+You generated this python code:
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+
+Fix the python code above and return the new python code:
+2024-12-23 12:41:00 [INFO] Executing Step 1: CodeGenerator
+2024-12-23 12:41:03 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:41:03 [INFO] Code generated:
+            ```
+            import pandas as pd
+import matplotlib.pyplot as plt
+
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, 
+        {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, 
+        {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+            ```
+            
+2024-12-23 12:41:03 [INFO] Executing Step 2: CodeCleaning
+2024-12-23 12:41:03 [INFO] 
+Code running:
+```
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+        ```
+2024-12-23 12:41:03 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:41:03 [WARNING] Failed to execute code retrying with a correction framework [retry number: 3]
+2024-12-23 12:41:03 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-12-23 12:41:03 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-12-23 12:41:03 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Kakutou Bijin Wulong,6.6,"Comedy, Fantasy, Gourmet",Continuation of Legend of the Condor Hero II.,Movie,203.0,Shinano Kikaku,"LIDENFILMS, Felix Film",Music,128.0,R+ - Mild Nudity,12615,15058,2001,33177,19227,2022-10-23,2001-03-28
+Fumetsu no Anata e: Fushi no Tabiji,6.06,"Sci-Fi, Sports","The Mizuchi bloodline has long been hunted by Yokai, or monsters. Toru and Noboru Takagami are descendents of this bloodline, and under their grandmother's discretion, are given a secret weapon to combat these monsters. It is Tenko Kugen, a fox deity who can take the shape of a man or woman at will. The mischievous deity is accompanied by a shrine maiden, Ko, who will both live with the Takagami brothers at their house. Life just got complicated. 
+
+(Source: NIS America)",Music,170.0,"Kodansha, Tohokushinsha Film Corporation, Bandai Namco Arts",Signal.MD,Web novel,0.28,R - 17+ (violence & profanity),7578,2366,228,14967,9268,2010-07-16,2007-03-27
+Ishida to Asakura Special,8.19,"Comedy, Drama, Romance, Hentai","DVD only 13th episode of the series.
+
+Gould and Keel work together with the New United Nations and the crew of the last remaining space station ""Freedom"" (their father) to broadcast a powerful signal all over the world with the new world map for everyone to be available. The episode ends with both of them looking over the horizon, as we see Freedom station falling to earth’s orbit as a shooting star.",OVA,20.0,"Aniplex, Yomiuri Telecasting, Rakuonsha",I.Toon,Radio,8.0,PG-13 - Teens 13 or older,6915,2262,44977,50011,5547,2020-05-01,1988-06-25
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Draw a chart showing the top 5 highest-ranked anime series
+
+You generated this python code:
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+
+Fix the python code above and return the new python code:
+2024-12-23 12:41:03 [INFO] Executing Step 1: CodeGenerator
+2024-12-23 12:41:06 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:41:06 [INFO] Code generated:
+            ```
+            import pandas as pd
+import matplotlib.pyplot as plt
+
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928},
+        {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064},
+        {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+            ```
+            
+2024-12-23 12:41:06 [INFO] Executing Step 2: CodeCleaning
+2024-12-23 12:41:06 [INFO] 
+Code running:
+```
+data = [{'Name': 'Re:Creators', 'Score': 6.19, 'Rank': 3928}, {'Name': 'Saiyuuki Reload: Burial', 'Score': 4.57, 'Rank': 41064}, {'Name': 'Ichigeki Sacchuu!! Hoihoi-san: Legacy', 'Score': 6.25, 'Rank': 12329}]
+df = pd.DataFrame(data)
+top_5_anime = df.sort_values(by='Score', ascending=False).head(5)
+plt.figure(figsize=(10, 6))
+plt.barh(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Score')
+plt.ylabel('Anime Series')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.gca().invert_yaxis()
+plt.show()
+        ```
+2024-12-23 12:41:06 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 9, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'gca' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:41:06 [ERROR] Pipeline failed on step 6: 'gca' is not allowed in RestrictedMatplotlib
+2024-12-23 12:48:55 [INFO] Question: Draw a chart depicting the 5 highest-ranked anime series
+2024-12-23 12:48:56 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-12-23 12:48:56 [INFO] Prompt ID: 466c1127-ae79-41c9-aefa-609fd9fde477
+2024-12-23 12:48:56 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-12-23 12:48:56 [INFO] Executing Step 0: ValidatePipelineInput
+2024-12-23 12:48:56 [INFO] Executing Step 1: CacheLookup
+2024-12-23 12:48:56 [INFO] Using cached response
+2024-12-23 12:48:56 [INFO] Executing Step 2: PromptGeneration
+2024-12-23 12:48:56 [INFO] Executing Step 2: Skipping...
+2024-12-23 12:48:56 [INFO] Executing Step 3: CodeGenerator
+2024-12-23 12:48:56 [INFO] Executing Step 3: Skipping...
+2024-12-23 12:48:56 [INFO] Executing Step 4: CachePopulation
+2024-12-23 12:48:56 [INFO] Executing Step 4: Skipping...
+2024-12-23 12:48:56 [INFO] Executing Step 5: CodeCleaning
+2024-12-23 12:48:56 [INFO] Saving charts to D:\Data Science Programming\External_Projects\Streamlit Project\exports\charts\466c1127-ae79-41c9-aefa-609fd9fde477.png
+2024-12-23 12:48:56 [INFO] 
+Code running:
+```
+dfs[0]['Score'] = pd.to_numeric(dfs[0]['Score'])
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/466c1127-ae79-41c9-aefa-609fd9fde477.png')
+result = {'type': 'plot', 'value': 'D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/466c1127-ae79-41c9-aefa-609fd9fde477.png'}
+        ```
+2024-12-23 12:48:56 [INFO] Executing Step 6: CodeExecution
+2024-12-23 12:48:56 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_pandas.py", line 109, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedPandas")
+AttributeError: 'to_numeric' is not allowed in RestrictedPandas
+
+2024-12-23 12:48:56 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-12-23 12:48:56 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-12-23 12:48:56 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-12-23 12:48:56 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Kangoku: Injoku no Jikkentou,5.32,"Action, Adventure, Comedy, Mystery, Sci-Fi","A student confesses his love to his teacher, an attractive woman with large breasts.",Music,237.0,Lawson Entertainment,IMAGICA Lab.,Manga,0.45,PG-13 - Teens 13 or older,157,2216,613,36709,30560,2015-02-15,2017-12-29
+Otome wa Boku ni Koishiteru,6.24,"Action, Comedy, Romance, Supernatural, Hentai","The feisty Natsume, motherly Akira, soft-spoken Fuyu, and innocent Haruka make up the Makino sisters. One week after losing his wife in an accident, the father of the household, Kenichi, starts to view his four daughters in a way that goes beyond a regular parent-child relationship. He soon becomes unable to resist their beautiful figures, and giving in to his carnal incestuous desires, he starts to have his way with them one by one.",Movie,726.0,Chukong Technologies,EKACHI EPILKA,Web manga,28.0,R+ - Mild Nudity,1932,1100,733,11632,68496,2007-12-07,2017-11-22
+Gokujo.: Souda Onsen ni Ikou!!,8.36,"Drama, Slice of Life, Supernatural",The sequel of the Cream Lemon: Lemon Angel.,OVA,22.0,"TV Tokyo, Hakuhodo DY Media Partners",Gallop,Book,52.0,PG - Children,10346,10787,95,6187,11692,2006-01-05,2010-01-31
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Draw a chart depicting the 5 highest-ranked anime series
+
+You generated this python code:
+dfs[0]['Score'] = pd.to_numeric(dfs[0]['Score'])
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/466c1127-ae79-41c9-aefa-609fd9fde477.png')
+result = {'type': 'plot', 'value': 'D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/466c1127-ae79-41c9-aefa-609fd9fde477.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_pandas.py", line 109, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedPandas")
+AttributeError: 'to_numeric' is not allowed in RestrictedPandas
+
+
+Fix the python code above and return the new python code:
+2024-12-23 12:48:56 [INFO] Executing Step 1: CodeGenerator
+2024-12-23 12:48:59 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:48:59 [INFO] Code generated:
+            ```
+            dfs[0]['Score'] = dfs[0]['Score'].astype(float)
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/466c1127-ae79-41c9-aefa-609fd9fde477.png')
+result = {'type': 'plot', 'value': 'D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/466c1127-ae79-41c9-aefa-609fd9fde477.png'}
+            ```
+            
+2024-12-23 12:48:59 [INFO] Executing Step 2: CodeCleaning
+2024-12-23 12:48:59 [INFO] Saving charts to D:\Data Science Programming\External_Projects\Streamlit Project\exports\charts\466c1127-ae79-41c9-aefa-609fd9fde477.png
+2024-12-23 12:48:59 [INFO] 
+Code running:
+```
+dfs[0]['Score'] = dfs[0]['Score'].astype(float)
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/466c1127-ae79-41c9-aefa-609fd9fde477.png')
+result = {'type': 'plot', 'value': 'D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/466c1127-ae79-41c9-aefa-609fd9fde477.png'}
+        ```
+2024-12-23 12:48:59 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 10, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'tight_layout' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:48:59 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-12-23 12:48:59 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-12-23 12:48:59 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-12-23 12:48:59 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Kangoku: Injoku no Jikkentou,5.32,"Action, Adventure, Comedy, Mystery, Sci-Fi","A student confesses his love to his teacher, an attractive woman with large breasts.",Music,237.0,Lawson Entertainment,IMAGICA Lab.,Manga,0.45,PG-13 - Teens 13 or older,157,2216,613,36709,30560,2015-02-15,2017-12-29
+Otome wa Boku ni Koishiteru,6.24,"Action, Comedy, Romance, Supernatural, Hentai","The feisty Natsume, motherly Akira, soft-spoken Fuyu, and innocent Haruka make up the Makino sisters. One week after losing his wife in an accident, the father of the household, Kenichi, starts to view his four daughters in a way that goes beyond a regular parent-child relationship. He soon becomes unable to resist their beautiful figures, and giving in to his carnal incestuous desires, he starts to have his way with them one by one.",Movie,726.0,Chukong Technologies,EKACHI EPILKA,Web manga,28.0,R+ - Mild Nudity,1932,1100,733,11632,68496,2007-12-07,2017-11-22
+Gokujo.: Souda Onsen ni Ikou!!,8.36,"Drama, Slice of Life, Supernatural",The sequel of the Cream Lemon: Lemon Angel.,OVA,22.0,"TV Tokyo, Hakuhodo DY Media Partners",Gallop,Book,52.0,PG - Children,10346,10787,95,6187,11692,2006-01-05,2010-01-31
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Draw a chart depicting the 5 highest-ranked anime series
+
+You generated this python code:
+dfs[0]['Score'] = dfs[0]['Score'].astype(float)
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/466c1127-ae79-41c9-aefa-609fd9fde477.png')
+result = {'type': 'plot', 'value': 'D:/Data Science Programming/External_Projects/Streamlit Project/exports/charts/466c1127-ae79-41c9-aefa-609fd9fde477.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 10, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'tight_layout' is not allowed in RestrictedMatplotlib
+
+
+Fix the python code above and return the new python code:
+2024-12-23 12:48:59 [INFO] Executing Step 1: CodeGenerator
+2024-12-23 12:49:02 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:49:02 [INFO] Code generated:
+            ```
+            import matplotlib.pyplot as plt
+
+dfs[0]['Score'] = dfs[0]['Score'].astype(float)
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+            ```
+            
+2024-12-23 12:49:02 [INFO] Executing Step 2: CodeCleaning
+2024-12-23 12:49:02 [INFO] 
+Code running:
+```
+dfs[0]['Score'] = dfs[0]['Score'].astype(float)
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+        ```
+2024-12-23 12:49:02 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 10, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'tight_layout' is not allowed in RestrictedMatplotlib
+
+2024-12-23 12:49:02 [WARNING] Failed to execute code retrying with a correction framework [retry number: 3]
+2024-12-23 12:49:02 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-12-23 12:49:02 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-12-23 12:49:02 [INFO] Using prompt: <dataframe>
+dfs[0]:13834x18
+Name,Score,Genres,Synopsis,Type,Episodes,Producers,Studios,Source,Time per ep (Min),Rating,Rank,Popularity,Favorites,Scored By,Members,Released date,Completed date
+Kangoku: Injoku no Jikkentou,5.32,"Action, Adventure, Comedy, Mystery, Sci-Fi","A student confesses his love to his teacher, an attractive woman with large breasts.",Music,237.0,Lawson Entertainment,IMAGICA Lab.,Manga,0.45,PG-13 - Teens 13 or older,157,2216,613,36709,30560,2015-02-15,2017-12-29
+Otome wa Boku ni Koishiteru,6.24,"Action, Comedy, Romance, Supernatural, Hentai","The feisty Natsume, motherly Akira, soft-spoken Fuyu, and innocent Haruka make up the Makino sisters. One week after losing his wife in an accident, the father of the household, Kenichi, starts to view his four daughters in a way that goes beyond a regular parent-child relationship. He soon becomes unable to resist their beautiful figures, and giving in to his carnal incestuous desires, he starts to have his way with them one by one.",Movie,726.0,Chukong Technologies,EKACHI EPILKA,Web manga,28.0,R+ - Mild Nudity,1932,1100,733,11632,68496,2007-12-07,2017-11-22
+Gokujo.: Souda Onsen ni Ikou!!,8.36,"Drama, Slice of Life, Supernatural",The sequel of the Cream Lemon: Lemon Angel.,OVA,22.0,"TV Tokyo, Hakuhodo DY Media Partners",Gallop,Book,52.0,PG - Children,10346,10787,95,6187,11692,2006-01-05,2010-01-31
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Draw a chart depicting the 5 highest-ranked anime series
+
+You generated this python code:
+dfs[0]['Score'] = dfs[0]['Score'].astype(float)
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 10, in <module>
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\safe_libs\restricted_matplotlib.py", line 75, in __getattr__
+    raise AttributeError(f"'{name}' is not allowed in RestrictedMatplotlib")
+AttributeError: 'tight_layout' is not allowed in RestrictedMatplotlib
+
+
+Fix the python code above and return the new python code:
+2024-12-23 12:49:02 [INFO] Executing Step 1: CodeGenerator
+2024-12-23 12:49:04 [INFO] Prompt used:
+            None
+            
+2024-12-23 12:49:04 [INFO] Code generated:
+            ```
+            dfs[0]['Score'] = dfs[0]['Score'].astype(float)
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.show()
+            ```
+            
+2024-12-23 12:49:04 [INFO] Executing Step 2: CodeCleaning
+2024-12-23 12:49:04 [INFO] 
+Code running:
+```
+dfs[0]['Score'] = dfs[0]['Score'].astype(float)
+sorted_df = dfs[0].sort_values(by='Score', ascending=False)
+top_5_anime = sorted_df.head(5)
+plt.figure(figsize=(12, 6))
+plt.bar(top_5_anime['Name'], top_5_anime['Score'], color='skyblue')
+plt.xlabel('Anime Series')
+plt.ylabel('Score')
+plt.title('Top 5 Highest-Ranked Anime Series')
+plt.xticks(rotation=45, ha='right')
+plt.show()
+        ```
+2024-12-23 12:49:04 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\MINH HUNG\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+2024-12-23 12:49:04 [ERROR] Pipeline failed on step 6: No result returned
