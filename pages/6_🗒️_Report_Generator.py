@@ -37,7 +37,7 @@ if 'csv_file' in st.session_state:
     
     if st.button("Report Generating"):
 
-        profile = ProfileReport(df)  # or provide a valid path
+        profile = ProfileReport(filtered_df)  # or provide a valid path
         profile.to_file("report.html")
 
         # Read and display the HTML file in Streamlit
