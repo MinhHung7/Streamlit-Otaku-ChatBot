@@ -16,8 +16,6 @@ if 'csv_file' in st.session_state:
     # Read the CSV from session state into DataFrame
     df = pd.read_csv(io.StringIO(st.session_state.csv_file))
 
-    # Header Section
-    st.title('Anime Recommender System')
     st.markdown("""
     Welcome to the **Anime Recommender System**! 🎬🍿
     Just type the name of an anime below, and we’ll recommend similar ones based on genre, rating, and specialty score.
