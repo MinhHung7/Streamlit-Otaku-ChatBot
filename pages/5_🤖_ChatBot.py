@@ -8,6 +8,9 @@ import matplotlib.pyplot as plt
 from translate import Translator
 from pandasai import SmartDataframe
 from pandasai.responses.streamlit_response import StreamlitResponse
+from pandasai.engine import set_pd_engine
+
+set_pd_engine("pandas")
 
 # Streamlit app layout
 st.set_page_config(page_title="Chatbot", page_icon="🤖", layout="wide")
