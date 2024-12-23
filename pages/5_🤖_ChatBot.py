@@ -22,7 +22,7 @@ if 'csv_file' in st.session_state:
 
     translator = Translator(to_lang="en", from_lang="vi")
 
-    os.environ["PANDASAI_API_KEY"] = "$2a$10$DQcV6/8s8O.lC8V6/3Vw8.GIcENCPLYWxEWm9jOsoGzVYiM1X1vaO"
+    os.environ["PANDASAI_API_KEY"] = "$2a$10$GEsfXrwFuOWndHnBgXcSkecd3RlY3ffzDyDk19gXMRue4Dr.oqz4m"
 
     sdf = SmartDataframe(df, config={"save_charts": True,"save_charts_path": export_folder, "verbose": True, "response_parser": StreamlitResponse})
 
