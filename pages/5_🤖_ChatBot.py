@@ -41,7 +41,7 @@ if 'csv_file' in st.session_state:
 
         translated_text = translator.translate(user_input)
 
-        response = sdf.chat(translated_text)
+        response = sdf.chat(translated_text, output_type=['plot','string','number'])
 
         for filename in os.listdir(export_folder):
             file_path = os.path.join(export_folder, filename)
