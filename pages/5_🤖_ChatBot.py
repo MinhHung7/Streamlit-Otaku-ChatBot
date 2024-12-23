@@ -3,7 +3,7 @@ import pandas as pd
 import io
 from io import StringIO
 import os
-import matplotlib as plt
+import matplotlib.pyplot as plt
 from translate import Translator
 from pandasai import SmartDataframe
 from pandasai.responses.streamlit_response import StreamlitResponse
