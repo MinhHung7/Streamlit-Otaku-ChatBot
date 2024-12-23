@@ -4,7 +4,7 @@ This is my first project using [Streamlit](https://streamlit.io/) to build a dat
 If you're curious about our final project, you can visit here [Final Project Data Science Programming](https://github.com/MinhHung7/Final_Project_DataScienceProgramming)
 
 ---
-| ![Home Page](https://github.com/MinhHung7/Streamlit-Otaku-ChatBot/blob/main/images/data_exploring.png) | ![Problem Solving Page](https://github.com/MinhHung7/Streamlit-Otaku-ChatBot/blob/main/images/problem_solving.png) | ![Problem Solving](https://github.com/MinhHung7/Streamlit-Otaku-ChatBot/blob/main/images/problem_solving_2.png) |
+| ![Home Page](https://github.com/MinhHung7/Streamlit-Otaku-ChatBot/blob/main/images/data_exploring.png) | ![Problem Solving Page](https://github.com/MinhHung7/Streamlit-Otaku-ChatBot/blob/main/images/problem_solving.png) | ![ChatBot Page](https://github.com/MinhHung7/Streamlit-Otaku-ChatBot/blob/main/images/chatbot.png) |
 |-------------------------|-------------------------|-------------------------|
 
 | ![Recommender System Page](https://github.com/MinhHung7/Streamlit-Otaku-ChatBot/blob/main/images/recommender_system.png) | ![Report Generator Page](https://github.com/MinhHung7/Streamlit-Otaku-ChatBot/blob/main/images/report_generator.png) |
