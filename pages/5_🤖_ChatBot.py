@@ -24,7 +24,7 @@ if 'csv_file' in st.session_state:
 
     os.environ["PANDASAI_API_KEY"] = "$2a$10$GEsfXrwFuOWndHnBgXcSkecd3RlY3ffzDyDk19gXMRue4Dr.oqz4m"
 
-    sdf = SmartDataframe(df, config={"save_charts": True,"save_charts_path": export_folder, "verbose": True, "response_parser": StreamlitResponse})
+    sdf = SmartDataframe(df, config={"save_charts": True,"save_charts_path": export_folder, "verbose": True, "response_parser": StreamlitResponse, "custom_whitelisted_dependencies": ["to_numeric"]})
 
     # User input
     user_input = st.text_area("You: ", "")
