@@ -10,13 +10,16 @@ import datetime as dt
 from ydata_profiling import ProfileReport
 
 # Set the page title
-st.set_page_config(page_title="Report Generator", page_icon="🗒️")
+st.set_page_config(page_title="Report Generator", page_icon="🗒️", layout="wide")
 
 # Title of the page
 st.title("Report Generator")
 
 if 'csv_file' in st.session_state:
 
+    st.markdown("""The **Report Generator** page allows you to easily create professional and customizable reports based on your analysis of the anime dataset. Whether you need a detailed breakdown of anime trends, a visual representation of data, or a summary of key findings, this tool has you covered. You can select specific data points, chart types, and layouts, and instantly generate reports in formats like PDF, Word, or Markdown. Perfect for presentations, research, or sharing insights with others.""")
+    st.markdown("""🚀 **Start generating your customized reports and showcase your findings today**""")
+    
     # Read the CSV from session state into DataFrame
     df = pd.read_csv(io.StringIO(st.session_state.csv_file))
     

@@ -7,7 +7,7 @@ from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 
-st.set_page_config(page_title="Recommender System", page_icon="🧑‍💻")
+st.set_page_config(page_title="Recommender System", page_icon="🧑‍💻", layout="wide")
 
 st.title("Anime Recommender System")
 

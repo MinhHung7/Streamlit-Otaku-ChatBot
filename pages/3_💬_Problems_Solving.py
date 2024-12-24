@@ -11,11 +11,14 @@ import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 
-st.set_page_config(page_title="Problems Solving", page_icon="💬")
+st.set_page_config(page_title="Problems Solving", page_icon="💬", layout="wide")
 
 st.title("Data-driven Insights into Anime 2023")
 
 if 'csv_file' in st.session_state:
+
+    st.markdown("""The **Problem Solving** page is your go-to space for answering questions and uncovering insights hidden within the anime dataset. Whether you're curious about *"Which anime has the highest rating?"* or *"What are the most popular genres over the years?"*, this page provides precise answers through data-driven analysis. Equipped with smart filtering tools and AI-powered queries, you can explore complex relationships, identify patterns, and validate hypotheses effortlessly. This page is designed not just to answer questions but to inspire deeper curiosity and discovery.""")
+    st.markdown("""🚀 **Start exploring answers and uncover the stories behind the data now!**  """)
 
     # Read the CSV from session state into DataFrame
     df = pd.read_csv(io.StringIO(st.session_state.csv_file))

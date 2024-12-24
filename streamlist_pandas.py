@@ -1,6 +1,36 @@
 import streamlit as st
 import pandas as pd
 
+# ##################################
+# # Customer Filtering
+# def filter_date_range(df, column, start_date, end_date):
+#     """
+#     Lọc DataFrame theo khoảng thời gian từ start_date đến end_date.
+#     """
+#     df[column] = pd.to_datetime(df[column])  # Đảm bảo rằng cột ngày tháng là kiểu datetime
+#     return df[(df[column] >= start_date) & (df[column] <= end_date)]
+
+# def date_widget(df, column, ss_name):
+#     # Lọc bỏ những giá trị NaN trong cột ngày
+#     df = df[df[column].notna()]
+#     # Chuyển cột ngày tháng về kiểu datetime nếu chưa phải
+#     df[column] = pd.to_datetime(df[column])
+#     # Lấy ngày nhỏ nhất và lớn nhất trong cột để làm phạm vi ngày mặc định
+#     min_date = df[column].min().date()
+#     max_date = df[column].max().date()
+#     # Tạo các widget chọn ngày trong phạm vi
+#     start_date, end_date = st.sidebar.date_input(
+#         f"Chọn khoảng thời gian cho {column.title()}", 
+#         [min_date, max_date],
+#         min_value=min_date,
+#         max_value=max_date,
+#         key=ss_name
+#     )
+#     all_widgets.append((ss_name, "date", column))
+#     return start_date, end_date
+
+# #################################
+
 
 def filter_string(df, column, selected_list):
     final = []
@@ -41,6 +71,7 @@ def text_widget(df, column, ss_name):
     temp_input = st.sidebar.text_input(f"{column.title()}", key=ss_name)
     all_widgets.append((ss_name, "text", column))
 
+
 def create_widgets(df, create_data={}, ignore_columns=[]):
     """
     This function will create all the widgets from your Pandas DataFrame and return them.
@@ -62,6 +93,9 @@ def create_widgets(df, create_data={}, ignore_columns=[]):
                 create_select(df, column, column.lower(), multi=False)
             elif create_data[column] == "multiselect":
                 create_select(df, column, column.lower(), multi=True)
+            # ## Customer date filter
+            # elif create_data[column] == "date":
+            #     start_date, end_date = date_widget(df, column, column.lower())
         else:
             if ctype == "float64":
                 number_widget(df, column, column.lower())
@@ -97,4 +131,8 @@ def filter_df(df, all_widgets):
             elif ctype == "number":
                 min, max = data
                 res = res.loc[(res[column] >= min) & (res[column] <= max)]
+            # ## Customer date filter
+            # elif ctype == "date":
+            #     start_date, end_date = data
+            #     res = filter_date_range(res, column, start_date, end_date)
     return res

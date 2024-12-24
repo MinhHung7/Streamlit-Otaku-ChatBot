@@ -4,9 +4,10 @@ import papermill as pm
 import os
 from datetime import datetime
 import re
+import time
 
 # Set the page title
-st.set_page_config(page_title="Data Upload and Preprocessing", page_icon="📥")
+st.set_page_config(page_title="Data Upload and Preprocessing", page_icon="📥", layout="wide")
 
 # Title of the page
 st.title("Upload Your Anime Dataset")
@@ -68,7 +69,11 @@ if uploaded_file is not None:
     st.write(df.columns.tolist())
     
     if st.button("Data Preprocessing"):
-        st.write("Please wait.")
+        # Simulating a long process
+        with st.spinner('Please wait... Processing data...'):
+            time.sleep(5)  # Simulate processing time
+
+        st.success('Done! Your data is ready.')
 
 
         #################################################

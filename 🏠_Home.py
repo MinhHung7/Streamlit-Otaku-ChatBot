@@ -1,8 +1,10 @@
 import streamlit as st
+import time
 
 st.set_page_config(
     page_title="Anime Analysics App",
     page_icon="🏠",
+    layout="wide"
 )
 
 st.title("Anime 2023 Analysis & Machine Learning Hub")
