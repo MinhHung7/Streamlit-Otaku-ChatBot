@@ -4,6 +4,7 @@ import os
 import ollama
 from PIL import Image
 import base64
+import requests
 
 # Streamlit app layout
 st.set_page_config(page_title="Chatbot", page_icon="🤖", layout="wide")
@@ -28,7 +29,7 @@ modelfile = f"""
         PARAMETER temperature 0.7
         """
 
-ollama.create(model="data_science_assistant", modelfile=modelfile)
+# ollama.create(model="data_science_assistant", modelfile=modelfile)
 
 # User input
 img_file_buffer = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
@@ -49,9 +50,24 @@ if user_input:
         # Xử lý hình ảnh với API Ollama (LLaVA)
         try:
 
-            res = ollama.generate(model="data_science_assistant", prompt=user_input, images=[img_base64])
+            #####################################
+            # Gửi yêu cầu đến API Ollama
+            response = requests.post(
+                "http://localhost:11434/api/generate",
+                json={"modelfile": modelfile, "model": "llava", "prompt": user_input, "images":[img_base64], "stream": False}
+            )
+            
+            if response.status_code == 200:
+                result = response.json()
+                st.write("**Trả lời:**")
+                st.write(result['response'])
+            else:
+                st.error("Lỗi khi kết nối với Ollama API")
+            ####################################
 
-            st.write("Chatbot")
-            st.write(res["response"])
+            # res = ollama.generate(model="data_science_assistant", prompt=user_input, images=[img_base64])
+
+            # st.write("Chatbot")
+            # st.write(res["response"])
         except Exception as e:
             st.error(f"Lỗi xử lý hình ảnh: {e}")

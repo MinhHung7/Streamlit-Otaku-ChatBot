@@ -37,4 +37,4 @@ matplotlib==3.7.1
 seaborn
 ydata_profiling==4.12.1
 numba==0.58.1
-ollama
+requests
