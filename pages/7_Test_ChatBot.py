@@ -60,8 +60,12 @@ if user_input:
                 result = response.json()
                 st.write("**Trả lời:**")
                 st.write(result['response'])
+            elif response.status_code == 403:
+                st.error("🚫 Forbidden: Check if the API endpoint requires authentication or IP whitelisting.")
+            elif response.status_code == 404:
+                st.error("🔍 API endpoint not found. Verify the URL.")
             else:
-                st.error("Lỗi khi kết nối với Ollama API")
+                st.error(f"⚠️ Unexpected Error: {response.status_code}, {response.text}")
             ####################################
 
             # res = ollama.generate(model="data_science_assistant", prompt=user_input, images=[img_base64])
