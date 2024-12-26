@@ -52,7 +52,7 @@ if user_input:
             #####################################
             # Gửi yêu cầu đến API Ollama
             response = requests.post(
-                " https://676f-14-169-76-55.ngrok-free.app/api/generate",
+                "https://676f-14-169-76-55.ngrok-free.app/api/generate",
                 json={"modelfile": modelfile, "model": "llava", "prompt": user_input, "images":[img_base64], "stream": False}
             )
             
