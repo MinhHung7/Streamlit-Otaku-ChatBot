@@ -74,7 +74,7 @@ Create beautiful and professional reports based on your chosen data:
 
 ---
 ## 👉 How to run
-- If you wanna try to run this app immediately, you can access via this url [Anime 2023 Analysis Web](⁦https://app-otaku-recommendation-2xbztxbxs97pvg9kswptop.streamlit.app/⁩)
+- If you wanna try to run this app immediately, you can access via this url [Anime 2023 Analysis Web](https://app-otaku-recommendation-2xbztxbxs97pvg9kswptop.streamlit.app/)
 - In case you want to run web by code, you need to clone this repository
 ```
 git clone https://github.com/MinhHung7/Streamlit-Otaku-Recommendation
